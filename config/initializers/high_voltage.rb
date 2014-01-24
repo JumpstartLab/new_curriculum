@@ -1,3 +1,3 @@
-HighVoltage.config do |config|
+HighVoltage.configure do |config|
   config.route_drawer = HighVoltage::RouteDrawers::Root
 end
