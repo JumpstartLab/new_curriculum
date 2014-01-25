@@ -1,4 +1,4 @@
-class FileIndexer
+class IndexerService
   attr_reader :directory, :files
 
   def initialize(directory)
@@ -30,8 +30,8 @@ class FileIndexer
 
   def store_files
     files.each do |title, content|
-      File.create(
-        title:   title
+      StaticPage.create(
+        title:   title,
         content: content
         )
     end

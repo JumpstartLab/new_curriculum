@@ -1,1 +1,0 @@
-FileIndexer.new("app/views/pages").index_files
