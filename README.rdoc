@@ -1,28 +1,21 @@
-== README
+## New Curriculum
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a Rails app that will host our existing curriculum.
 
-Things you may want to cover:
+### Add New Tutorials
 
-* Ruby version
+For new tutorials, create a new file following this format: `new_tutorial.html.markdown` under the app/pages folder. Once created, a route will be created based on the filename, such as http://tutorials.jumpstartlab.com/new_tutorial.
 
-* System dependencies
+### Index the Pages
 
-* Configuration
+There is a rake task for indexing the tutorial pages:
 
-* Database creation
+* `rake index:pages` for indexing pages.
+* `rake index:drop` for deleting the index.
+* `rake index:setup` for deleting the index and indexing the pages.
 
-* Database initialization
+### ToDo
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+* Install Solr for searching the pages.
+* Improve test coverage.
+* Implement liquid tags for rendering terminal outputs.
