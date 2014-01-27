@@ -1,12 +1,12 @@
 class IndexerService
-  attr_reader :directory, :files
+  attr_reader :directory,
+              :files
 
   def initialize(directory)
     @directory = directory
   end
 
   def index_files
-    filenames
     read_files
     store_files
   end
