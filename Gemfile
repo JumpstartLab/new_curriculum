@@ -14,6 +14,7 @@ gem 'haml-rails'
 gem 'high_voltage'
 gem 'redcarpet'
 gem 'flutie'
+gem 'database_cleaner'
 
 group :doc do
   gem 'sdoc', require: false

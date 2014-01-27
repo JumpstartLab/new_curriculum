@@ -6,7 +6,7 @@ namespace :index do
 
   desc "drops the static pages index"
   task drop: :environment do
-    StaticPage.destroy_all
+    DatabaseCleaner.clean_with :truncation, { only: ['static_pages'] }
   end
 
   desc "drops the index and indexes the pages"
