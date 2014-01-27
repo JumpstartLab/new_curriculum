@@ -62,6 +62,6 @@ class IndexerService
   private
 
   def valid?(filename)
-    filename.start_with?(".", "..") ? false : true
+    !filename.start_with?(".", "..")
   end
 end
