@@ -1,9 +1,11 @@
 class IndexerService
   attr_reader :directory,
-              :files
+              :files,
+              :parser
 
   def initialize(directory)
     @directory = directory
+    @parser    = ParserService.new
   end
 
   def index_files
@@ -20,9 +22,9 @@ class IndexerService
 
     filenames.each do |filename|
       file = read_file(filename)
-      html = parse_markdown(file)
+      html = parser.parse_markdown(file)
 
-      files["#{filename}"] = strip_html(html)
+      files["#{filename}"] = parser.strip_html(html)
     end
 
     @files = files
@@ -30,36 +32,26 @@ class IndexerService
 
   def store_files
     files.each do |title, content|
-      StaticPage.create(
-        title:   title,
-        content: content
-        )
+      store_file(title: title, content: content)
+
+      print "."
     end
+
+    puts "\n"
   end
+
+  private
 
   def read_file(filename)
     File.open("#{directory}/#{filename}").read
   end
 
-  def parse_markdown(file)
-    renderer = Redcarpet::Render::HTML.new(hard_wrap: true)
-    options  = {
-      autolink:           true,
-      no_intra_emphasis:  true,
-      fenced_code_blocks: true,
-      lax_html_blocks:    true,
-      strikethrough:      true,
-      superscript:        true
-    }
-
-    Redcarpet::Markdown.new(renderer, options).render(file).html_safe
+  def store_file(attributes)
+    StaticPage.create(
+      title:   attributes[:title],
+      content: attributes[:content]
+      )
   end
-
-  def strip_html(html)
-    ActionView::Base.full_sanitizer.sanitize(html)
-  end
-
-  private
 
   def valid?(filename)
     !filename.start_with?(".", "..")

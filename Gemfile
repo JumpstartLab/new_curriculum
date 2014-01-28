@@ -11,10 +11,10 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'pg'
 gem 'haml-rails'
-gem 'high_voltage'
-gem 'redcarpet'
-gem 'flutie'
-gem 'database_cleaner'
+gem 'high_voltage'     # Renders static pages
+gem 'redcarpet'        # Parses markdown
+gem 'flutie'           # Helpers for ActionView
+gem 'database_cleaner' # Cleans database
 
 group :doc do
   gem 'sdoc', require: false
