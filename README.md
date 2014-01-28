@@ -10,7 +10,7 @@ For new tutorials, create a new file following this format: `new_tutorial.html.m
 
 There is a rake task for indexing the tutorial pages:
 
-* `rake index:pages` for indexing pages.
+* `rake index:generate` for indexing pages.
 * `rake index:drop` for deleting the index.
 * `rake index:setup` for deleting the index and indexing the pages.
 

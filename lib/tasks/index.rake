@@ -1,6 +1,6 @@
 namespace :index do
   desc "indexes static pages"
-  task pages: :environment do
+  task generate: :environment do
     IndexerService.new("app/views/pages").index_files
   end
 
@@ -11,6 +11,6 @@ namespace :index do
 
   desc "drops the index and indexes the pages"
   task setup: :environment do
-    %w[index:drop index:pages].each { |task| Rake::Task[task].invoke }
+    %w[index:drop index:generate].each { |task| Rake::Task[task].invoke }
   end
 end
