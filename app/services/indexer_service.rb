@@ -21,8 +21,8 @@ class IndexerService
     files = {}
 
     filenames.each do |filename|
-      file = read_file(filename)
-      html = parser.parse_markdown(file)
+      content = read_file(filename)
+      html    = parser.parse_markdown(content)
 
       files["#{filename}"] = parser.strip_html(html)
     end

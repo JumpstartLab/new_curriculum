@@ -15,6 +15,8 @@ gem 'high_voltage'     # Renders static pages
 gem 'redcarpet'        # Parses markdown
 gem 'flutie'           # Helpers for ActionView
 gem 'database_cleaner' # Cleans database
+gem 'sunspot_rails'    # Installs solr query interface
+gem 'sunspot_solr'     # Pre-packaged Solr distribution for use in development
 
 group :doc do
   gem 'sdoc', require: false

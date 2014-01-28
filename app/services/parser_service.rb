@@ -1,5 +1,5 @@
 class ParserService
-  def parse_markdown(text)
+  def parse_markdown(content)
     renderer = Redcarpet::Render::HTML.new(hard_wrap: true)
     options  = {
       autolink:           true,
@@ -10,7 +10,7 @@ class ParserService
       superscript:        true
     }
 
-    Redcarpet::Markdown.new(renderer, options).render(text).html_safe
+    Redcarpet::Markdown.new(renderer, options).render(content).html_safe
   end
 
   def strip_html(html)
