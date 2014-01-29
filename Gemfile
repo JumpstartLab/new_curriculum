@@ -17,6 +17,7 @@ gem 'flutie'           # Helpers for ActionView
 gem 'database_cleaner' # Cleans database
 gem 'sunspot_rails'    # Installs solr query interface
 gem 'sunspot_solr'     # Pre-packaged Solr distribution for use in development
+gem 'progress_bar'     # Progress reporting for Sunspot
 
 group :doc do
   gem 'sdoc', require: false

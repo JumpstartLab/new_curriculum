@@ -8,6 +8,8 @@ For new tutorials, create a new file following this format: `new_tutorial.html.m
 
 ### Index the Pages
 
+Once you have solr installed, you can start it with `rake sunspot:solr:start`. Make sure solr is running before indexing.
+
 There is a rake task for indexing the tutorial pages:
 
 * `rake index:generate` for indexing pages.

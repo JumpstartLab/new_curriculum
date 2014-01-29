@@ -31,8 +31,12 @@ class IndexerService
   end
 
   def store_files
-    files.each do |title, content|
-      store_file(title: title, content: content)
+    files.each do |filename, content|
+      store_file(
+        title:    generate_title(filename),
+        filename: filename,
+        content:  content
+        )
 
       print "."
     end
@@ -48,9 +52,14 @@ class IndexerService
 
   def store_file(attributes)
     StaticPage.create(
-      title:   attributes[:title],
-      content: attributes[:content]
+      title:    attributes[:title],
+      filename: attributes[:filename],
+      content:  attributes[:content]
       )
+  end
+
+  def generate_title(filename)
+    FormatterService.filename_to_title(filename)
   end
 
   def valid?(filename)

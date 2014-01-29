@@ -12,3 +12,7 @@
         %a{href: "http://jumpstartlab.com/team"} Team
       %li
         %a{href: "mailto:contact@jumpstartlab.com?subject=Information%20Request"} Contact
+    %form.navbar-form.navbar-right{action: "/search", method: :get}
+      .form-group
+        %input.form-control{placeholder: "Search", type: "text", name: "search"}
+      %button.btn.btn-default{type: "submit"} Submit

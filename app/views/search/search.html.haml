@@ -1,0 +1,10 @@
+- if @static_pages.empty?
+  %h1 Sorry
+  %p No results found, please try again.
+- else
+  %h1 Results
+  - @static_pages.each do |static_page|
+    %h2
+      = link_to static_page.title, FormatterService.filename_to_url(static_page.filename)
+    %p
+      = static_page.content[0..600]
