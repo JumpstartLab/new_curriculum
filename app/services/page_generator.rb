@@ -1,14 +1,14 @@
-class IndexerService
+class PageGenerator
   attr_reader :directory,
               :files,
               :parser
 
   def initialize(directory)
     @directory = directory
-    @parser    = ParserService.new
+    @parser    = Parser.new
   end
 
-  def index_files
+  def generate_pages
     read_files
     store_files
   end
@@ -22,9 +22,7 @@ class IndexerService
 
     filenames.each do |filename|
       content = read_file(filename)
-      html    = parser.parse_markdown(content)
-
-      files["#{filename}"] = parser.strip_html(html)
+      files["#{filename}"] = parser.markdown_to_html(content)
     end
 
     @files = files
@@ -32,19 +30,26 @@ class IndexerService
 
   def store_files
     files.each do |filename, content|
-      store_file(
-        title:    generate_title(filename),
-        filename: filename,
-        content:  content
-        )
+      unless file_exists?(filename)
+        store_file(
+          title:    generate_title(filename),
+          filename: filename,
+          content:  content,
+          slug:     generate_slug(filename)
+          )
 
-      print "."
+        print "."
+      end
     end
 
     puts "\n"
   end
 
   private
+
+  def file_exists?(filename)
+    StaticPage.all.map(&:filename).include?(filename)
+  end
 
   def read_file(filename)
     File.open("#{directory}/#{filename}").read
@@ -54,12 +59,17 @@ class IndexerService
     StaticPage.create(
       title:    attributes[:title],
       filename: attributes[:filename],
-      content:  attributes[:content]
+      content:  attributes[:content],
+      slug:     attributes[:slug]
       )
   end
 
+  def generate_slug(filename)
+    Formatter.filename_to_url(filename)
+  end
+
   def generate_title(filename)
-    FormatterService.filename_to_title(filename)
+    Formatter.filename_to_title(filename)
   end
 
   def valid?(filename)

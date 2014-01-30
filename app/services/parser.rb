@@ -1,5 +1,5 @@
-class ParserService
-  def parse_markdown(content)
+class Parser
+  def markdown_to_html(content)
     renderer = Redcarpet::Render::HTML.new(hard_wrap: true)
     options  = {
       autolink:           true,
