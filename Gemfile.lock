@@ -32,6 +32,7 @@ GEM
       erubis (>= 2.6.6)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    blankslate (3.1.2)
     builder (3.1.4)
     coderay (1.1.0)
     coffee-rails (4.0.1)
@@ -49,6 +50,7 @@ GEM
     erubis (2.7.0)
     execjs (2.0.2)
     fattr (2.2.1)
+    ffi (1.9.3)
     haml (4.0.5)
       tilt
     haml-rails (0.5.3)
@@ -88,6 +90,7 @@ GEM
       fattr
     pg (0.17.1)
     polyglot (0.3.3)
+    posix-spawn (0.3.8)
     pr_geohash (1.0.0)
     progress_bar (1.0.0)
       highline (~> 1.6.1)
@@ -96,6 +99,9 @@ GEM
       coderay (~> 1.0)
       method_source (~> 0.8)
       slop (~> 3.4)
+    pygments.rb (0.5.4)
+      posix-spawn (~> 0.3.6)
+      yajl-ruby (~> 1.1.0)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -136,6 +142,9 @@ GEM
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
       rspec-mocks (~> 2.14.0)
+    rubypython (0.6.3)
+      blankslate (>= 2.1.2.3)
+      ffi (>= 1.0.7)
     sdoc (0.4.0)
       json (~> 1.8)
       rdoc (~> 4.0, < 5.0)
@@ -178,6 +187,7 @@ GEM
     uglifier (2.4.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    yajl-ruby (1.1.0)
 
 PLATFORMS
   ruby
@@ -195,10 +205,12 @@ DEPENDENCIES
   pg
   progress_bar
   pry
+  pygments.rb
   rails (= 4.0.1)
   rails_12factor
   redcarpet
   rspec-rails
+  rubypython
   sdoc
   simplecov
   sunspot_rails

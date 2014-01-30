@@ -16,6 +16,8 @@ gem 'database_cleaner' # Cleans database
 gem 'sunspot_rails'    # Installs solr query interface
 gem 'sunspot_solr'     # Pre-packaged Solr distribution for use in development
 gem 'progress_bar'     # Progress reporting for Sunspot
+gem 'rubypython'       # Embeds Python in the Ruby application’s process
+gem 'pygments.rb'      # Ruby syntax higlighting
 
 group :doc do
   gem 'sdoc', require: false
