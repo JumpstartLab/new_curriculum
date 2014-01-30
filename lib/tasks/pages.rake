@@ -9,7 +9,7 @@ namespace :pages do
   desc "drops the static pages table"
   task drop: :environment do
     puts "Dropping static pages table"
-    DatabaseCleaner.clean_with :truncation, { only: ['static_pages'] }
+    DatabaseCleaner.clean_with :truncation, { only: ['pages'] }
     puts "Done."
   end
 

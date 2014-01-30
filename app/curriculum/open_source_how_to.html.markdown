@@ -1,5 +1,3 @@
-# Open Source How-To
-
 In this 90-minute workshop, let's explore the basic tools and techniques you'll need for contributing to Open Source projects.
 
 ### Prerequisites

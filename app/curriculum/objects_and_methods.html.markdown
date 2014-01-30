@@ -1,5 +1,3 @@
-# Objects and Methods
-
 We will use the [ruby-exercises (objects-and-methods)](https://github.com/JumpstartLab/ruby-exercises)
 repository to practice writing objects that have methods and that interact
 with each other.

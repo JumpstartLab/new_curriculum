@@ -1,5 +1,3 @@
-# Ideabox
-
 Ideabox is a series of tutorials and exercises.
 
 1. **Ideabox TDD** [Introduction to TDD](/academy/workshops/ideabox/tdd.html)
@@ -12,4 +10,3 @@ Old stuff that will be folded into this:
 
 * [old project/tutorial]({% page_url projects/idea_box %})
 * [tdd draft]({% page_url academy/workshops/idea_box_tdd %})
-

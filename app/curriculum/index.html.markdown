@@ -1,5 +1,3 @@
-# Workshops
-
 ### Workshops
 
 Workshops are short, self-contained sessions focused on a single topic:

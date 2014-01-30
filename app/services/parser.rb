@@ -1,5 +1,5 @@
 class Parser
-  def markdown_to_html(content)
+  def self.markdown_to_html(content)
     renderer = Redcarpet::Render::HTML.new(hard_wrap: true)
     options  = {
       autolink:           true,
@@ -13,7 +13,12 @@ class Parser
     Redcarpet::Markdown.new(renderer, options).render(content).html_safe
   end
 
-  def strip_html(html)
+  def self.strip_html(html)
     ActionView::Base.full_sanitizer.sanitize(html)
+  end
+
+  def self.format_content(content)
+    html = markdown_to_html(content)
+    strip_html(html).gsub(/[^\p{Alnum}\p{Punct}]/, ' ')
   end
 end

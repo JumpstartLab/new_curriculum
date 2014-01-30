@@ -1,4 +1,4 @@
-class StaticPage < ActiveRecord::Base
+class Page < ActiveRecord::Base
   searchable do
     string :filename
     string :title

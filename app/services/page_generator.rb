@@ -1,7 +1,6 @@
 class PageGenerator
   attr_reader :directory,
-              :files,
-              :parser
+              :files
 
   def initialize(directory)
     @directory = directory
@@ -20,10 +19,7 @@ class PageGenerator
   def read_files
     files = {}
 
-    filenames.each do |filename|
-      content = read_file(filename)
-      files["#{filename}"] = parser.markdown_to_html(content)
-    end
+    filenames.each { |filename| files["#{filename}"] = read_file(filename) }
 
     @files = files
   end
@@ -48,7 +44,7 @@ class PageGenerator
   private
 
   def file_exists?(filename)
-    StaticPage.all.map(&:filename).include?(filename)
+    Page.all.map(&:filename).include?(filename)
   end
 
   def read_file(filename)
@@ -56,7 +52,7 @@ class PageGenerator
   end
 
   def store_file(attributes)
-    StaticPage.create(
+    Page.create(
       title:    attributes[:title],
       filename: attributes[:filename],
       content:  attributes[:content],

@@ -1,5 +1,3 @@
-# Ruby in 100 Minutes
-
 Ruby was written to make the programmer's job easy and not care if the computer's job is hard. In this brief introduction we'll look at the key language features you need to get started.
 
 1. Instructions and Interpreters

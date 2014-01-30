@@ -1,7 +1,7 @@
 NewCurriculum::Application.routes.draw do
   get "/search" => 'search#search', as: :search
 
-  get "/:page_slug" => 'page#show', as: :page
+  get "/:page_slug" => 'pages#show', as: :page
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

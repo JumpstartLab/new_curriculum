@@ -1,5 +1,3 @@
-# Scrabble Intermediate
-
 ## Getting Started
 
 Before beginning these exercises it's expected that you have either:

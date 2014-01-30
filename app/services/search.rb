@@ -1,6 +1,6 @@
 class Search
-  def self.static_pages(criteria)
-    StaticPage.search do
+  def self.pages(criteria)
+    Page.search do
       fulltext(criteria) { boost_fields title: 2.0 }
 
       order_by :title, :desc
