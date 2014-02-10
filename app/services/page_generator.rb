@@ -1,30 +1,11 @@
 class PageGenerator
-  attr_reader :directory,
-              :files
+  attr_reader :directory
 
   def initialize(directory)
     @directory = directory
-    @parser    = Parser.new
   end
 
   def generate_pages
-    read_files
-    store_files
-  end
-
-  def filenames
-    Dir.foreach(directory).collect { |filename| filename if valid?(filename) }.compact!
-  end
-
-  def read_files
-    files = {}
-
-    filenames.each { |filename| files["#{filename}"] = read_file(filename) }
-
-    @files = files
-  end
-
-  def store_files
     files.each do |filename, content|
       unless file_exists?(filename)
         store_file(
@@ -44,7 +25,23 @@ class PageGenerator
   private
 
   def file_exists?(filename)
-    Page.all.map(&:filename).include?(filename)
+    Page.pluck(:filename).include?(filename)
+  end
+
+  def files
+    files = {}
+
+    filenames.each { |filename| files["#{filename}"] = read_file(filename) }
+
+    files
+  end
+
+  def filenames
+    Dir.foreach(directory).collect { |filename| filename if valid?(filename) }.compact!
+  end
+
+  def valid?(filename)
+    !filename.start_with?(".", "..")
   end
 
   def read_file(filename)
@@ -60,15 +57,11 @@ class PageGenerator
       )
   end
 
-  def generate_slug(filename)
-    Formatter.filename_to_url(filename)
-  end
-
   def generate_title(filename)
     Formatter.filename_to_title(filename)
   end
 
-  def valid?(filename)
-    !filename.start_with?(".", "..")
+  def generate_slug(filename)
+    Formatter.filename_to_url(filename)
   end
 end
