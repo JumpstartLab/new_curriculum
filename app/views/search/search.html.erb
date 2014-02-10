@@ -1,0 +1,14 @@
+<% if @pages.empty? %>
+  <h1>Sorry</h1>
+  <p>No results found, please try again.</p>
+<% else %>
+  <h1>Results</h1>
+  <% @pages.each do |page| %>
+    <h2>
+      <%= link_to page.title, format_url(page.slug) %>
+    </h2>
+    <p>
+      <%= format_summary(page.content) %>
+    </p>
+  <% end %>
+<% end %>
