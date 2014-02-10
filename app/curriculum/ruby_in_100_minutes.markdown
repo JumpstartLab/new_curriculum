@@ -45,14 +45,14 @@ And if you want to learn Rails, you need to learn Ruby first!  Here goes...
 There are two ways to run Ruby code. You can write one or more instructions in a file then run that file through the Ruby interpreter. When you're writing a "real" program, this is the way to do it. We might have a file named `my_program.rb` like this:
 
 ```ruby
-  class Sample
-    def hello
-      puts "Hello, World!"
-    end
+class Sample
+  def hello
+    puts "Hello, World!"
   end
+end
 
-  s = Sample.new
-  s.hello
+s = Sample.new
+s.hello
 ```
 
 Then we could run the program like this:
