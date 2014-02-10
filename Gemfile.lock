@@ -67,6 +67,7 @@ GEM
     less-rails-bootstrap (3.0.6)
       less-rails (~> 2.4.2)
     libv8 (3.16.14.3)
+    liquid (2.3.0)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -189,6 +190,7 @@ DEPENDENCIES
   jquery-rails
   less-rails
   less-rails-bootstrap
+  liquid
   pg
   progress_bar
   pry
