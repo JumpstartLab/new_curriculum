@@ -1,6 +1,6 @@
 class TerminalTag < Liquid::Block
   def initialize(tag_name, markup, tokens)
-     super
+    super
   end
 
   def render(context)
@@ -8,12 +8,12 @@ class TerminalTag < Liquid::Block
 
     %{<div class="window">
         <nav class="control-window">
-          <a href="#finder" class="close" data-rel="close">close</a>
+          <a href="#finder" class="close_window" data-rel="close">close</a>
           <a href="#" class="minimize">minimize</a>
           <a href="#" class="deactivate">deactivate</a>
         </nav>
         <h1 class="titleInside">Terminal</h1>
-        <div class="container"><div class="terminal">#{promptize(output)}</div></div>
+        <div class="container_window"><div class="terminal">#{promptize(output)}</div></div>
       </div>}
   end
 
@@ -39,6 +39,7 @@ class TerminalTag < Liquid::Block
       line = line.sub(command_character,'').strip
     else
       line_class = "output"
+      line.gsub!("<br>", "")
     end
     "<span class='line #{line_class}'>#{line}</span>"
   end
@@ -47,5 +48,3 @@ class TerminalTag < Liquid::Block
     "$"
   end
 end
-
-Liquid::Template.register_tag('terminal', TerminalTag)
