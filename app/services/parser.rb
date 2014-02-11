@@ -6,7 +6,7 @@ class Parser
   end
 
   def self.markdown_to_html(content)
-    renderer = HTMLRuby.new(hard_wrap: true, filter_html: true)
+    renderer = HTMLRuby.new(filter_html: true)
     options  = {
       autolink:           true,
       no_intra_emphasis:  true,
