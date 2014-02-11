@@ -17,6 +17,8 @@ class TerminalTag < Liquid::Block
       </div>}
   end
 
+  private
+
   def promptize(content)
     content = content.strip
     gutters = content.lines.map { |line| gutter(line) }

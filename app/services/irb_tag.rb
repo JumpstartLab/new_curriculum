@@ -47,5 +47,4 @@ class IRBTag < Liquid::Block
     end
     table += "</pre></td><td class='code'><pre><code>#{code}</code></pre></td></tr></table>"
   end
-
 end
