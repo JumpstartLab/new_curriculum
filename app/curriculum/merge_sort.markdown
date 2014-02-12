@@ -1,8 +1,3 @@
----
-layout: page
-title: Merge Sort Workshop
----
-
 > Merge sort is an O(n log n) comparison-based sorting algorithm. Most implementations produce a stable sort, which means that the implementation preserves the input order of equal elements in the sorted output. Merge sort is a divide and conquer algorithm that was invented by John von Neumann in 1945.[1] A detailed description and analysis of bottom-up mergesort appeared in a report by Goldstine and Neumann as early as 1948.[2]
 
 ~ [Wikipedia](http://en.wikipedia.org/wiki/Merge_sort)
