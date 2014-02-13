@@ -1,7 +1,6 @@
 NewCurriculum::Application.routes.draw do
-  get "/search" => 'search#search', as: :search
-
-  get "/:page_slug" => 'pages#show', as: :page
+  get "/search"     => 'search#search', as: :search
+  get "/:page_slug" => 'pages#show',    as: :page
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -57,4 +56,6 @@ NewCurriculum::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+  root "home#show"
 end

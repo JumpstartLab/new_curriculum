@@ -1,4 +1,10 @@
-Liquid::Template.register_tag('terminal', TerminalTag)
-Liquid::Template.register_tag('irb', IRBTag)
-Liquid::Template.register_tag('exercise', ExerciseTag)
-Liquid::Template.register_tag('archive', ArchiveTag)
+tags = {
+  'terminal' => TerminalTag,
+  'irb'      => IRBTag,
+  'exercise' => ExerciseTag,
+  'archive'  => ArchiveTag
+}
+
+tags.each do |tag_name, tag_render|
+  Liquid::Template.register_tag(tag_name, tag_render)
+end
