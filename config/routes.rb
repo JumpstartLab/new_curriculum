@@ -1,5 +1,11 @@
 NewCurriculum::Application.routes.draw do
+  get 'auth/:provider/callback', to: 'sessions#create'
+  get 'auth/failure',            to: redirect('/')
+  get 'logout',                  to: 'sessions#destroy', as: :logout
+
   get "/search"     => 'search#search', as: :search
+  resources :pages, only: [:index]
+
   get "/:page_slug" => 'pages#show',    as: :page
 
   # The priority is based upon order of creation: first created -> highest priority.

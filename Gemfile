@@ -10,6 +10,8 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'pg'
+gem 'omniauth-github'
+gem 'figaro'           # Handles environment variables
 gem 'redcarpet'        # Parses markdown
 gem 'database_cleaner' # Cleans database
 gem 'sunspot_rails'    # Installs solr query interface
