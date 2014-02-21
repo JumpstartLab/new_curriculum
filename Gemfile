@@ -19,6 +19,7 @@ gem 'sunspot_solr'     # Pre-packaged Solr distribution for use in development
 gem 'progress_bar'     # Progress reporting for Sunspot
 gem 'pygments.rb'      # Ruby syntax higlighting
 gem 'liquid'           # Renders liquid tags
+gem 'haml'
 
 group :doc do
   gem 'sdoc', require: false
