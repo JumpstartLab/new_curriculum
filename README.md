@@ -19,4 +19,3 @@ There is a rake task for indexing the tutorial pages:
 ### ToDo
 
 * Improve test coverage.
-* Implement liquid tags for rendering terminal outputs.
