@@ -14,7 +14,12 @@
 # Ignore all logfiles and tempfiles.
 /log
 /tmp
+
+# Ignore Sunspot files
 /solr
+
+# Ignore Coverage files
+/coverage
 
 # Ignore application configuration
 /config/application.yml

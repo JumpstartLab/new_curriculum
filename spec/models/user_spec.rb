@@ -48,15 +48,17 @@ describe User do
 
       expect(result).to be_valid
     end
+  end
 
-    it "finds a user when is already created" do
+  context "when user already exists" do
+    it "finds a user" do
       user_1 = User.from_omniauth(oauth)
       user_2 = User.from_omniauth(oauth)
 
       expect(user_1.id).to eq user_2.id
     end
 
-    it "updates the nickname of a user that already exists" do
+    it "updates the nickname" do
       User.from_omniauth(oauth)
       modified_oauth = oauth
       modified_oauth["info"]["nickname"] = "kytrynyx"
@@ -65,7 +67,7 @@ describe User do
       expect(result.nickname).to eq "kytrynyx"
     end
 
-    it "updates the name of a user that already exists" do
+    it "updates the name" do
       User.from_omniauth(oauth)
       modified_oauth = oauth
       modified_oauth["info"]["name"] = "Katrina"
@@ -74,7 +76,7 @@ describe User do
       expect(result.name).to eq "Katrina"
     end
 
-    it "updates the email of a user that already exists" do
+    it "updates the email" do
       User.from_omniauth(oauth)
       modified_oauth = oauth
       modified_oauth["info"]["email"] = "kytrynyx@example.com"
@@ -83,7 +85,7 @@ describe User do
       expect(result.email).to eq "kytrynyx@example.com"
     end
 
-    it "updates the token of a user that already exists" do
+    it "updates the oauth_token" do
       User.from_omniauth(oauth)
       modified_oauth = oauth
       modified_oauth["credentials"]["token"] = "987654321"
@@ -92,7 +94,7 @@ describe User do
       expect(result.oauth_token).to eq "987654321"
     end
 
-    it "updates the token of a user that already exists" do
+    it "updates the avatar_url" do
       User.from_omniauth(oauth)
       modified_oauth = oauth
       modified_oauth["info"]["image"] = "http://example.com/kytrynyx.jpg"
